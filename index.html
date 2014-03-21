@@ -24,18 +24,19 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 	<script src='./js/p.js' type='text/javascript'></script>
     <script src='./js/plugins.js' type='text/javascript'></script>
-    <script src='./js/main.js' type='text/javascript'></script>
 	<script type="text/javascript" src="jquery.fullPage.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			var pepe = $.fn.fullpage({
-				slidesColor: ['#666666', '#51ffb7', '#666666', '#666666', '#666666'],
+				slidesColor: ['#141414', '#51ffb7', '#666666', '#141414', '#141414'],
 				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
 				menu: '#menu'
 			});
 			
 		});
 	</script>
+	    <script src='./js/main.js' type='text/javascript'></script>
+
 	<script type="text/javascript" src="//use.typekit.net/vik3nek.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
@@ -46,7 +47,7 @@
 <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://http://alvarotrigo.com/fullPage/" data-text="Great plugin to create fullscreen scrolling websites: http://alvarotrigo.com/fullPage/">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 -->
-<ul id="menu">
+<ul id="menu" style="display:none;">
 	<li data-menuanchor="firstPage"><a href="#firstPage">First slide</a></li>
 	<li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
 	<li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
@@ -57,10 +58,8 @@
 	<!-- <h1>fullPage.js</h1> -->
 	<!-- <p>Create Beautiful Fullscreen Scrolling Websites</p> -->
 	<!-- <img src="imgs/fullPage.png" alt="fullPage" /> -->
-	<div id="logo">
-               <!--  <canvas id="AdobeOOGridExplorationLOGO" data-processing-sources="./js/AdobeOOGridExploration_LOGO.pde" width="772" height="275" tabindex="0" style="image-rendering: -webkit-optimize-contrast !important;"></canvas> -->
-               <img src="img/logo.png">
-                <!-- <canvas id="AdobeOOGridExplorationLOGO" data-processing-sources="./js/AdobeOOGridExploration_LOGO.pde" width="772" height="275" tabindex="0" style="image-rendering: -webkit-optimize-contrast !important;"></canvas> -->
+	<div id="logo">       
+        <img src="img/logo.png">
     </div>
     <p id="header">100 Artists At Work</p>
     <img class="arrow" src="img/arrowsm.png">
@@ -103,18 +102,11 @@
 </div>
 <div class="section" id="section2">
 	<div class="intro">
-		<img class="play" src="img/play.svg" width="120" height="120">
-		<div class="lightbox" id="lightbox-francis-techniques" style="display:none;">
-            <iframe class="video" id="video-francis-techniques" src="//player.vimeo.com/video/80036953?api=1&amp;player_id=video-francis-techniques&amp;title=0&amp;byline=0&amp;portrait=0&amp;color=4BDBCA" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-            <a class="close pucker" data-video="francis-techniques" data-tint="#4BDBCA" href=".">x</a>
+        <div class="videoWrapper">
+        	<iframe src="//player.vimeo.com/video/89451435?title=0&amp;byline=0&amp;portrait=0" width="1921" height="1080" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
-
-		<!-- <h1>Example</h1> -->
-		<!-- <p>HTML markup example to define 4 sections.</p> -->
-		<!-- <img src="imgs/example2.png" alt="example" /> -->
-		<!-- <iframe src="//player.vimeo.com/video/89451435?title=0&amp;byline=0&amp;portrait=0" width="900" height="506" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
 	</div>
-	        <img class="arrow" src="img/arrowsm.png">
+	<img class="arrow" src="img/arrowsm.png">
 
 </div>
 <div class="section" id="section3">
@@ -122,25 +114,24 @@
 		<!-- <h1>Working On Tablets</h1> -->
 		<p>
 			Click the lights below and discover the artists behind them.
-			<br /><br /><br /><br /><br /><br />
 		</p>
 		<iframe
-                    src="webgl/"                    
-                    Frameborder=0
-                    height="500"
-                    width="900">
-                </iframe>
-                <div id="test" class="popup">
-                    <div class="triangle-with-shadow"></div>
-                    <div class="cancel" onclick="closePopup();">x</div>
-                    <!-- <p>Adobe Artist Info:</p> -->
-                    <p id="name"></p>
-                    <!-- <img id="pic" src=""> -->
-                    <p id="company"></p>
-                    <p id="email"></p>
-                    <!-- <p id="about"></a> -->
-				</div>
-	<!-- <img src="imgs/tablets.png" alt="tablets" /> -->
+            src="webgl/"                    
+            Frameborder=0
+            height="1000"
+            width="1400">
+        </iframe>
+        <div id="test" class="popup">
+        <div class="triangle-with-shadow"></div>
+        <div class="cancel" onclick="closePopup();">x</div>
+	        <!-- <p>Adobe Artist Info:</p> -->
+	        <p id="name"></p>
+	        <!-- <img id="pic" src=""> -->
+	        <p id="company"></p>
+	        <p id="email"></p>
+	        <!-- <p id="about"></a> -->
+		</div>
+		
 	</div>
 </div>
 

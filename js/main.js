@@ -19,19 +19,12 @@ var y;
 			// var box = evt.box;
 			var data = artistArray;
 			var i = evt.artistId;
-			// console.log('position x: ');
-			// console.log(x);
-				//for (var i = 0; i < data.length; i++) {
-					// console.log(data[i].id);
-					//if (data[i].id == artistInfo) {
-						// console.log(data[i].name);
-						// console.log(box.y);
-						artistName = data[i].name;
-						artistCompany = data[i].company;
-						artistEmail = data[i].email;
+			artistName = data[i].name;
+			artistCompany = data[i].company;
+			artistEmail = data[i].email;
 						// artistAbout = data[i].about;
 						// artistPic = data[i].picture;
-						openPopup();
+			openPopup();
 					//}
 				//}
 			// console.log('artistId:' + evt.artistId);
@@ -53,11 +46,11 @@ showAristInfo = function () {
 };
 
 moveArtistInfo = function () {
-	var width = 900, height = 500;
+	var width = 1400, height = 1000;
 	var widthHalf = width / 2, heightHalf = height / 2;
-	var boxSize = {x:220,y:97};
+	var boxSize = {x:250,y:145};
 
-	posX = (box.x)-105; // added offset
+	posX = (box.x)+100; // added offset
 	posY = (-height+box.y-boxSize.y)-20; //added offset
 
 	$('.popup').css("left", posX);

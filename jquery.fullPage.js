@@ -16,7 +16,7 @@
 			'anchors':[],
 			'scrollingSpeed': 700,
 			'easing': 'easeOutSine',
-			'menu': true,
+			'menu': false,
 			'navigation': true,
 			'navigationPosition': 'right',
 			'navigationColor': '#fff',
