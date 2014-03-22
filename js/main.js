@@ -46,7 +46,7 @@ showAristInfo = function () {
 };
 
 moveArtistInfo = function () {
-	var width = 1400, height = 1000;
+	var width = 1400, height = 800;
 	var widthHalf = width / 2, heightHalf = height / 2;
 	var boxSize = {x:250,y:145};
 
@@ -60,10 +60,10 @@ moveArtistInfo = function () {
 
 function openPopup() {
     $('.popup').css('opacity', '0');
-    $('.popup').css('margin-top', '0');
+    // $('.popup').css('margin-top', '0');
     $('.popup').show().animate({
 		opacity: 1,
-		marginTop: 5
+		// marginTop: 5
 	});
     showAristInfo();
     moveArtistInfo();

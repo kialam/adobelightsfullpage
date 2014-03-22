@@ -150,7 +150,8 @@ p{
 
 #section2 img.arrow {
 	position: relative;
-	top: 330px;
+	bottom: 160px;
+	cursor: pointer;
 }
 .videoWrapper {
 	position: relative;
@@ -165,16 +166,10 @@ p{
 	width: 100%;
 	height: 100%;
 }
-/*.arrow{
-	background: url('img/arrow_bounce.gif') top left no-repeat;
+.arrow {
 	cursor: pointer;
-	display: block;
-	height: 103px;
-	width: 126px;
-	margin: 0 auto;
-	/*position: absolute;*/
-	/*margin-top: 200px;
-}*/
+}
+
 #section2 {
 	/*background: url('img/video_frame.jpg') no-repeat;*/
 	background-size: cover;
@@ -248,7 +243,11 @@ p{
 	position: absolute;
 	z-index: 1;
 }
-
+.cubes {
+	font-style: italic;
+	position: relative;
+	bottom: 50px
+}
 .popup {
     position: relative;
     width:250px;
