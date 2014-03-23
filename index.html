@@ -25,6 +25,7 @@
 	<script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
 	<script src='./js/p.js' type='text/javascript'></script>
     <script src='./js/plugins.js' type='text/javascript'></script>
+    <script src='./js/main.js' type='text/javascript'></script>
 	<script type="text/javascript" src="jquery.fullPage.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -36,7 +37,6 @@
 			
 		});
 	</script>
-	    <script src='./js/main.js' type='text/javascript'></script>
 
 	<script type="text/javascript" src="//use.typekit.net/vik3nek.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -56,6 +56,7 @@
 </ul>
 
 <div class="section " id="section0">
+	<div class="intro">
 	<!-- <h1>fullPage.js</h1> -->
 	<!-- <p>Create Beautiful Fullscreen Scrolling Websites</p> -->
 	<!-- <img src="imgs/fullPage.png" alt="fullPage" /> -->
@@ -63,9 +64,10 @@
         <img src="img/logo.png">
     </div>
     <p id="header">100 Artists At Work</p>
+    
     <img class="arrow" src="img/arrowsm.png">
             <!-- <span class="arrow"></span> -->
-            
+    </div>      
 </div>
 <div class="section" id="section1">
     <!-- <div class="slide"> -->
@@ -106,20 +108,24 @@
         <div class="videoWrapper">
         	<iframe id="video" src="//player.vimeo.com/video/89451435?title=0&amp;byline=0&amp;portrait=0?api=1" width="1920" height="1080" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
-	</div>
-	<!-- <img class="arrow" src="img/arrowsm.png"> -->
+        <!-- <div class="buttons">
+        	<div id="play-button"></div>
+        	<div id="puase-button"></div>
+        </div> -->
+        <button id="play-button"></button>
 
+</div>
 </div>
 <div class="section" id="section3">
 	<div class="intro">
 		<!-- <h1>Working On Tablets</h1> -->
 		
-		<iframe
+		<!--iframe
             src="webgl/"                    
             Frameborder=0
             height="800"
             width="1400">
-        </iframe>
+        </iframe-->
         <div id="test" class="popup">
         <div class="triangle-with-shadow"></div>
         <div class="cancel" onclick="closePopup();">x</div>

@@ -318,6 +318,11 @@
 		var scrollId;
 		var isScrolling = false;
 		
+		// Arrow buttons when clicked will move to next slide
+		$('.arrow').on('click', function() {
+			$.fn.fullpage.moveSectionDown();
+		});
+
 		//when scrolling...
 		$(window).scroll(function(e){
 
@@ -1440,3 +1445,5 @@
 
 	};
 })(jQuery);
+
+
