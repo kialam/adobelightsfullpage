@@ -318,7 +318,7 @@
 		var scrollId;
 		var isScrolling = false;
 		
-		// Arrow buttons when clicked will move to next slide
+		// Arrow when clicked will move to next slide
 		$('.arrow').on('click', function() {
 			$.fn.fullpage.moveSectionDown();
 		});

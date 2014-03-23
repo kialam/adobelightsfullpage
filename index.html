@@ -35,6 +35,29 @@
 				menu: '#menu'
 			});
 			
+			console.log('init me');
+			// var iframe = document.getElementById('video');
+			var iframe = $('#video');
+			// $f == Froogaloop
+			var player = $f(iframe);
+
+			// bind events
+			console.log('hi vid.js here');
+			$("#play-button").on('click', function() {
+				console.log('clicked me play');
+			});
+
+			var playButton = document.getElementById("play-button");
+			playButton.addEventListener("click", function() {
+			  console.log('play clicked');
+			  player.api("play");
+			});
+
+			var pauseButton = document.getElementById("pause-button");
+			pauseButton.addEventListener("click", function() {
+			  player.api("pause");
+			});
+
 		});
 	</script>
 
@@ -106,13 +129,46 @@
 <div class="section" id="section2">
 	<div class="intro">
         <div class="videoWrapper">
-        	<iframe id="video" src="//player.vimeo.com/video/89451435?title=0&amp;byline=0&amp;portrait=0?api=1" width="1920" height="1080" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        	<iframe id="player1" src="//player.vimeo.com/video/89451435?title=0&amp;byline=0&amp;portrait=0?api=1&player_id=player1" width="1920" height="1080" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
         <!-- <div class="buttons">
         	<div id="play-button"></div>
         	<div id="puase-button"></div>
         </div> -->
-        <button id="play-button"></button>
+        <p>Video status: <span class="status">...</span></p>
+		<p><button>Play</button> <button>Pause</button></p>
+        <!-- <button id="play-button">Play</button> -->
+        <script type="text/javascript">
+        	var iframe = $('#player1')[0],
+			    player = $f(iframe),
+			    status = $('.status');
+
+			// When the player is ready, add listeners for pause, finish, and playProgress
+			player.addEvent('ready', function() {
+			    status.text('ready');
+			    
+			    player.addEvent('pause', onPause);
+			    player.addEvent('finish', onFinish);
+			    player.addEvent('playProgress', onPlayProgress);
+			});
+
+			// Call the API when a button is pressed
+			$('button').bind('click', function() {
+			    player.api($(this).text().toLowerCase());
+			});
+
+			function onPause(id) {
+			    status.text('paused');
+			}
+
+			function onFinish(id) {
+			    status.text('finished');
+			}
+
+			function onPlayProgress(data, id) {
+			    status.text(data.seconds + 's played');
+			}
+        </script>
 
 </div>
 </div>

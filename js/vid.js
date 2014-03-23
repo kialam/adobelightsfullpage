@@ -11,6 +11,7 @@
 // player.api("pause");
 // });
 
+console.log('init me');
 // var iframe = document.getElementById('video');
 var iframe = $('#video');
 // $f == Froogaloop
