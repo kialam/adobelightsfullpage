@@ -46,12 +46,12 @@ showAristInfo = function () {
 };
 
 moveArtistInfo = function () {
-	var width = 1400, height = 800;
+	var width = window.innerWidth, height = window.innerHeight;
 	var widthHalf = width / 2, heightHalf = height / 2;
 	var boxSize = {x:250,y:145};
 
-	posX = (box.x)-100; // added offset
-	posY = (-height+box.y-boxSize.y)-20; //added offset
+	posX = (box.x)-boxSize.x/2; // added offset
+	posY = (-height/2+box.y-boxSize.y)+50; //added offset
 
 	$('.popup').css("left", posX);
 	$('.popup').css("top", posY);
