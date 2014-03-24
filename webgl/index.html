@@ -354,7 +354,7 @@
 					projector.unprojectVector( _vector, camera );
 					
 					ray = new THREE.Raycaster( camera.position, _vector.sub( camera.position ).normalize() );
-					intersections = ray.intersectObjects( scene.children );//.children
+					intersections = ray.intersectObjects( lights.children );//.children
 
 					if ( intersections.length > 0 ) {
 						selected_block = intersections[0].object;

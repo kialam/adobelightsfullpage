@@ -1,1 +1,0 @@
-Full page version of Adobe Lights website.
