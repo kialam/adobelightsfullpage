@@ -155,7 +155,8 @@ p{
 }*/
 .videoWrapper {
 	position: relative;
-	padding-bottom: 56.25%; /* 16:9 */
+	/*padding-bottom: 56.25%; /* 16:9 */
+	padding-bottom: 47.25%;
 	padding-top: 25px;
 	height: 0;
 }
@@ -174,22 +175,22 @@ p{
   left: -9999px;
 }
 
-/*iframe {
-  float: left;
-  width: 350px;
-  height: 200px;
-}*/
-button {
-	background: url('img/playsm.png');
-	width: 50px;
-	height: 50px;
-}
-.buttons {
-  padding: 1rem;
-  background: #f06d06;
-  float: left;
+button.play {
+	background: url('img/hoversm.png') no-repeat;
+	width: 80px;
+	height: 80px;
+	border: none;
+	position: absolute;
+	top: 50%;
 }
 
+button.play:hover {
+	background: url('img/playsm.png') no-repeat;
+}
+
+button:focus {
+	outline:0;
+}
 .arrow {
 	cursor: pointer;
 	position: absolute;
@@ -198,13 +199,17 @@ button {
 }
 
 #section2 {
-	/*background: url('img/video_frame.jpg') no-repeat;*/
+	background: url('img/video_frame.jpg') no-repeat;
 	background-size: cover;
 }
 
+/*svg.play_icon {
+	position: absolute;
+	bottom: 50%;
+}*/
 .play {
 	cursor: pointer;
-	padding-top: 75px;
+	/*padding-top: 75px;*/
 }
 #section2 img{
 	/*margin: 20px 0 0 52px;	*/

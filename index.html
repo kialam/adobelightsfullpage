@@ -129,15 +129,21 @@
 <div class="section" id="section2">
 	<div class="intro">
         <div class="videoWrapper">
-        	<iframe id="player1" src="//player.vimeo.com/video/89451435?title=0&amp;byline=0&amp;portrait=0?api=1&player_id=player1" width="1920" height="1080" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        	<iframe id="player1" style="display:none;" src="//player.vimeo.com/video/89451435?title=0&amp;byline=0&amp;portrait=0?api=1&player_id=player1" width="1920" height="1080" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
         <!-- <div class="buttons">
         	<div id="play-button"></div>
         	<div id="puase-button"></div>
         </div> -->
-        <p>Video status: <span class="status">...</span></p>
-		<p><button>Play</button> <button>Pause</button></p>
-        <!-- <button id="play-button">Play</button> -->
+        <!-- <p>Video status: <span class="status">...</span></p> -->
+		
+		<!-- <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 210 210" class="play_icon"> -->
+    <!-- <g transform="translate(-296 -123) translate(301 128)" stroke="rgba(81,255,183,.7)" stroke-width="9" fill="none"> -->
+        <!-- <circle cx="100" cy="100" r="100"></circle> -->
+        <!-- <polygon stroke-linecap="round" stroke-linejoin="round" transform="rotate(-150 100 100)" points="100 56.5 137.672105 121.75 62.3278949 121.75"></polygon> -->
+    <!-- </g> -->
+<!-- </svg> -->
+<button class="play"></button>
         <script type="text/javascript">
         	var iframe = $('#player1')[0],
 			    player = $f(iframe),
@@ -153,10 +159,14 @@
 			});
 
 			// Call the API when a button is pressed
-			$('button').bind('click', function() {
-			    player.api($(this).text().toLowerCase());
+			// $('button').bind('click', function() {
+			//     player.api($(this).text().toLowerCase());
+			// });
+			$('.play').bind('click', function() {
+				$('#player1').css('display', 'block');
+				player.api('play');
+				$('.play').fadeOut('slow');
 			});
-
 			function onPause(id) {
 			    status.text('paused');
 			}
