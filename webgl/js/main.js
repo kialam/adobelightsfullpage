@@ -33,14 +33,14 @@ $(document).ready(function() {
 		//host: "localhost",
 		port: "8882",
 		secure: false,
-		debug: true
+		debug: false
 	});
 
 	client.addEvent("move","any",function(msg, bid) {
 		var x = Math.floor(bid / 10);
 		var y = bid % 10;
 
-		console.log(msg, bid, x, y);
+		//console.log(msg, bid, x, y);
 		
 		var color = "rgba(" + msg + ")";
 		context.fillStyle = color;
