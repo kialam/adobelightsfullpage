@@ -59,7 +59,7 @@
     </div>      
 </div>
 <div class="section" id="section1">
-	<p id="description">Re-imagining Adobe’s logo with 100 cubes of light, each one reflecting the work of one artist in real time. A representation of the global community of  artists and designers who create amazing work everyday.</p>
+	<p id="description">Re-imagining Adobeâ€™s logo with 100 cubes of light, each one reflecting the work of one artist in real time. A representation of the global community of  artists and designers who create amazing work everyday.</p>
 	<img class="arrow" src="img/arrowblk.png">
 </div>
 <div class="section" id="section2">
@@ -88,9 +88,9 @@
 			// });
 			$('.play').bind('click', function() {
 				$('#section2').css({'background':'none', 'background-color':'#141414'});
+				$('.play').fadeOut('slow');
 				$('#player1').css('display', 'block');
 				player.api('play');
-				$('.play').fadeOut('slow');
 			});
 			// function onPause(id) {
 			//     status.text('paused');
