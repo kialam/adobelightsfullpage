@@ -96,6 +96,98 @@
 			build();
 			animate();
 
+
+			function init() {
+
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+
+				scene = new THREE.Scene();
+
+				camera = new THREE.PerspectiveCamera( 65, window.innerWidth / window.innerHeight, 1, 4000 );
+				camera.position.set( 2, 2, 3 );
+				scene.add( camera );
+
+
+				directionalLight = new THREE.DirectionalLight(0xffffff);
+				directionalLight.position.set(-1,-1,-1);
+			    //directionalLight.castShadow=true;
+				//	directionalLight.shadowCameraVisible = true;
+				scene.add( directionalLight );
+
+
+				renderer = new THREE.WebGLRenderer({ antialias : true});
+				renderer.setClearColor( 0x141414, 1 );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				//renderer.setDepthTest(false);
+					//renderer.autoClear = false;
+			    //  renderer.shadowCameraNear = 1;
+				//renderer.shadowCameraFar = 50;
+				//THREEx.WindowResize(renderer, camera);
+
+				container.appendChild( renderer.domElement );
+
+				//stats = new Stats();
+				//stats.domElement.style.position = 'absolute';
+				//stats.domElement.style.top = '0px';
+				//container.appendChild( stats.domElement );
+
+				var texture=THREE.ImageUtils.loadTexture('lightglow.png')
+				texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+				var glowMaterial = new THREE.MeshBasicMaterial({
+			    	color: 0xFFFFFF, opacity:1, transparent:true,map: texture
+			    });
+				glowMaterial.transparent = true;
+				glowMaterial.blending = THREE[ "CustomBlending" ];
+				glowMaterial.blendSrc = THREE[ "DstColorFactor" ];
+				glowMaterial.blendDst = THREE[ "DstAlphaFactor" ];
+				var glowGeom = new THREE.PlaneGeometry(100,100);
+				change_uvs( glowGeom, 10, 10, 0,0 );
+				var glowPlane = new THREE.Mesh(glowGeom, glowMaterial);
+				glowPlane.position.z=6;
+				scene.add(glowPlane);		
+
+
+				var glowGeometry = new THREE.Geometry();
+
+				var texture=THREE.ImageUtils.loadTexture('reflectiongradient.png')
+				texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+				var glowMaterial = new THREE.MeshBasicMaterial({
+			    	color: 0xFFFFFF, opacity:1, transparent:true,map: texture
+			    });
+				var glowGeom = new THREE.PlaneGeometry(102,100);
+				var glowPlane = new THREE.Mesh(glowGeom, glowMaterial);
+				glowPlane.position.z=6;
+				glowPlane.position.y=-100
+				THREE.GeometryUtils.merge(glowGeometry, glowPlane);// scene.add(glowPlane);		
+
+				var glowPlane = new THREE.Mesh(glowGeom, glowMaterial);
+				glowPlane.scale.x=.12;
+				glowPlane.rotation.y=-Math.PI/2;
+				glowPlane.position.x=-50.8
+				glowPlane.position.y=-100
+				//glowPlane.position.z=-5;
+				THREE.GeometryUtils.merge(glowGeometry, glowPlane);// scene.add(glowPlane);		
+
+				var glowPlane = new THREE.Mesh(glowGeom, glowMaterial);
+				glowPlane.scale.x=.12;
+				glowPlane.rotation.y=Math.PI/2;
+				glowPlane.position.x=50.7
+				glowPlane.position.y=-100
+				//glowPlane.position.z=-5;
+				THREE.GeometryUtils.merge(glowGeometry, glowPlane);// scene.add(glowPlane);		
+
+				var glowMesh = new THREE.Mesh(glowGeometry, glowMaterial);
+				glowMesh.scale.x=glowMesh.scale.y=glowMesh.scale.z=.99
+				glowMesh.position.z=1;
+				scene.add(glowMesh);
+
+				mouse = new THREE.Vector3( 0, 0, 1 );
+				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+				document.addEventListener( 'mousedown', handleMouseDown );
+				window.addEventListener( 'resize', onWindowResize, false );
+			}
+
 			function build(){
 				texture=THREE.ImageUtils.loadTexture('test.png')
 				//texture.needsUpdate = true;
@@ -199,7 +291,8 @@
 						//front.rotation.y=Math.PI;
 						front.position.x=(-4.5+_x)*10;
 						front.position.y=(-4.5+_y)*10;
-						lights.add(front);
+						//lights.add(front);
+						THREE.GeometryUtils.merge(lightsGeometry, front);
 
 						front2.rotation.x=Math.PI;
 						//front.rotation.y=Math.PI;
@@ -210,7 +303,7 @@
 				};
 
 				var shell = new THREE.Mesh(shellGeometry,material);
-				//var lights = new THREE.Mesh(lightsGeometry,materialG);
+				lights = new THREE.Mesh(lightsGeometry,materialG);
 				scene.add(lights);
 				scene.add(shell);
 
@@ -219,37 +312,7 @@
 				lightsReflection.position.y=-100;
 				scene.add(lightsReflection);
 			
-				//ocean();
-			}
-			
-
-			function ocean(){
-				/*waterNormals = new THREE.ImageUtils.loadTexture( 'waternormals.png' );
-				waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping; 
-
-				water = new THREE.Water( renderer, camera, scene, {
-					textureWidth: 512, 
-					textureHeight: 512,
-					waterNormals: waterNormals,
-					alpha: 	1.0,
-					sunDirection: directionalLight.position.normalize(),
-					sunColor: 0xffffff,
-					waterColor: 0x2d2d2d,
-					distortionScale: 50.0,
-				} );
-
-				mirrorMesh = new THREE.Mesh(
-					new THREE.PlaneGeometry( 1500,1500 , 1, 1 ), 
-					water.material
-				);
 				
-
-				mirrorMesh.add( water );
-				mirrorMesh.position.y = -50-1;
-				mirrorMesh.rotation.x = Math.PI * 0.5;
-				mirrorMesh.rotation.y = Math.PI;
-				mirrorMesh.rotation.z = Math.PI;
-				scene.add( mirrorMesh );*/
 			}
 
 			function change_uvs( geometry, unitx, unity, offsetx, offsety ) {
@@ -263,138 +326,6 @@
 						uv.y = ( uv.y + offsety ) * unity;
 					}
 				}
-			}
-
-			function init() {
-
-				container = document.createElement( 'div' );
-				document.body.appendChild( container );
-
-				scene = new THREE.Scene();
-
-				camera = new THREE.PerspectiveCamera( 65, window.innerWidth / window.innerHeight, 1, 4000 );
-				camera.position.set( 2, 2, 3 );
-				scene.add( camera );
-
-
-				directionalLight = new THREE.DirectionalLight(0xffffff);
-				directionalLight.position.set(-1,-1,-1);
-			    //directionalLight.castShadow=true;
-				//	directionalLight.shadowCameraVisible = true;
-				scene.add( directionalLight );
-				// Grid
-
-				var line_material = new THREE.LineBasicMaterial( { color: 0x333333 } ),
-					geometry = new THREE.Geometry(),
-					floor = -0.04, step = 400, size = 20000;
-
-				for ( var i = 0; i <= size / step * 2; i ++ ) {
-
-					geometry.vertices.push( new THREE.Vector3( - size, floor, i * step - size ) );
-					geometry.vertices.push( new THREE.Vector3(   size, floor, i * step - size ) );
-
-					geometry.vertices.push( new THREE.Vector3( i * step - size, floor, -size ) );
-					geometry.vertices.push( new THREE.Vector3( i * step - size, floor,  size ) );
-
-				}
-
-				var line = new THREE.Line( geometry, line_material, THREE.LinePieces );
-				line.position.y = -1.5*40;	
-				line.position.x = step/2;
-				line.position.z = step/2;
-				//scene.add( line );
-
-				 var cube = new THREE.Mesh(new THREE.CubeGeometry(15*20, 5*20, 5*20), new THREE.MeshLambertMaterial({color: 0xcc0000}));
-			    cube.position.y = 5*40;
-			    cube.rotation.x=30
-			    cube.castShadow=true;
-			    //scene.add(cube);
-
-			    /*
-				planeMaterial = new THREE.MeshBasicMaterial({
-			    	color: 0xFFFFFF, opacity:1, transparent:true,map: THREE.ImageUtils.loadTexture('floor.png')
-			    });
-
-				plane = new THREE.Mesh(new THREE.PlaneGeometry(40*6,40*6), planeMaterial);
-				plane.position.y = -50;	
-				plane.rotation.x = -Math.PI/2
-				scene.add(plane);
-				*/
-
-				var texture=THREE.ImageUtils.loadTexture('lightglow.png')
-				texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-				var glowMaterial = new THREE.MeshBasicMaterial({
-			    	color: 0xFFFFFF, opacity:1, transparent:true,map: texture
-			    });
-				glowMaterial.transparent = true;
-				glowMaterial.blending = THREE[ "CustomBlending" ];
-				glowMaterial.blendSrc = THREE[ "DstColorFactor" ];
-				glowMaterial.blendDst = THREE[ "DstAlphaFactor" ];
-				var glowGeom = new THREE.PlaneGeometry(100,100);
-				change_uvs( glowGeom, 10, 10, 0,0 );
-				var glowPlane = new THREE.Mesh(glowGeom, glowMaterial);
-				glowPlane.position.z=6;
-				scene.add(glowPlane);		
-
-
-
-				var texture=THREE.ImageUtils.loadTexture('reflectiongradient.png')
-				texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-				var glowMaterial = new THREE.MeshBasicMaterial({
-			    	color: 0xFFFFFF, opacity:1, transparent:true,map: texture
-			    });
-				var glowGeom = new THREE.PlaneGeometry(102,100);
-				var glowPlane = new THREE.Mesh(glowGeom, glowMaterial);
-				glowPlane.position.z=6;
-				glowPlane.position.y=-100
-				scene.add(glowPlane);		
-
-				var glowPlane = new THREE.Mesh(glowGeom, glowMaterial);
-				glowPlane.scale.x=.12;
-				glowPlane.rotation.y=-Math.PI/2;
-				glowPlane.position.x=-50.8
-				glowPlane.position.y=-100
-				//glowPlane.position.z=-5;
-				scene.add(glowPlane);		
-
-				var glowPlane = new THREE.Mesh(glowGeom, glowMaterial);
-				glowPlane.scale.x=.12;
-				glowPlane.rotation.y=Math.PI/2;
-				glowPlane.position.x=50.7
-				glowPlane.position.y=-100
-				//glowPlane.position.z=-5;
-				scene.add(glowPlane);		
-				
-
-				
-				/*pointLight = new THREE.SpotLight( 0xffffff, .9 );
-				pointLight.shadowCameraNear = 1;
-				pointLight.shadowCameraFar = 5000;
-				pointLight.position.y=10
-				pointLight.castShadow=true;
-				pointLight.shadowCameraVisible = true;
-				scene.add( pointLight );*/
-
-				renderer = new THREE.WebGLRenderer({ antialias : true});
-				renderer.setClearColor( 0x141414, 1 );
-				renderer.setSize( window.innerWidth, window.innerHeight );
-				//renderer.setDepthTest(false);
-					//renderer.autoClear = false;
-			    //  renderer.shadowCameraNear = 1;
-				//renderer.shadowCameraFar = 50;
-				//THREEx.WindowResize(renderer, camera);
-
-				container.appendChild( renderer.domElement );
-
-				//stats = new Stats();
-				//stats.domElement.style.position = 'absolute';
-				//stats.domElement.style.top = '0px';
-				//container.appendChild( stats.domElement );
-
-				mouse = new THREE.Vector3( 0, 0, 1 );
-				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-				document.addEventListener( 'mousedown', handleMouseDown );
-				window.addEventListener( 'resize', onWindowResize, false );
 			}
 
 			 function onWindowResize() {
@@ -423,7 +354,7 @@
 					projector.unprojectVector( _vector, camera );
 					
 					ray = new THREE.Raycaster( camera.position, _vector.sub( camera.position ).normalize() );
-					intersections = ray.intersectObjects( lights.children );
+					intersections = ray.intersectObjects( scene.children );//.children
 
 					if ( intersections.length > 0 ) {
 						selected_block = intersections[0].object;
@@ -500,7 +431,7 @@
 	                });
 	            }
 
-				/*if(context){
+				if(context){
 					var dis = 1;
 					var spd = .0005;
 					for( var _x = 0; _x < 10; _x++ ) {
@@ -517,7 +448,7 @@
 							}
 						}
 					}
-				}*/
+				}
 				if ( texture ) texture.needsUpdate = true;
 
 				camera.position.x -=(camera.position.x+ Math.cos( timer+2 ) * (3*40*3))/5;
