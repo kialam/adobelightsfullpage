@@ -130,7 +130,9 @@ p{
 	background: url('img/logo_bg_empty.jpg') no-repeat;
 	background-size: cover;
 }
-
+#logo > img {
+	max-width: 50%;
+}
 #section1 p {
 	color: #2b2b2b;
 }
@@ -177,12 +179,12 @@ p{
 
 button.play {
 	background: url('img/hoversm.png') no-repeat;
-	width: 80px;
-	height: 80px;
+	width: 100px;
+	height: 100px;
 	border: none;
 	position: absolute;
-	top: 50%;
-	left: 50%;
+	bottom: 48%;
+	left: 47%;
 }
 
 button.play:hover {
@@ -195,7 +197,7 @@ button:focus {
 .arrow {
 	cursor: pointer;
 	position: absolute;
-	left: 50%;
+	left: 48%;
 	bottom: 30px;
 }
 
