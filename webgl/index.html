@@ -291,8 +291,8 @@
 						//front.rotation.y=Math.PI;
 						front.position.x=(-4.5+_x)*10;
 						front.position.y=(-4.5+_y)*10;
-						//lights.add(front);
-						THREE.GeometryUtils.merge(lightsGeometry, front);
+						lights.add(front);
+						//THREE.GeometryUtils.merge(lightsGeometry, front);
 
 						front2.rotation.x=Math.PI;
 						//front.rotation.y=Math.PI;
@@ -303,7 +303,7 @@
 				};
 
 				var shell = new THREE.Mesh(shellGeometry,material);
-				lights = new THREE.Mesh(lightsGeometry,materialG);
+				//lights = new THREE.Mesh(lightsGeometry,materialG);
 				scene.add(lights);
 				scene.add(shell);
 
@@ -361,8 +361,8 @@
 						last_selected_block = selected_block;
 						console.log(selected_block);
 
-						var minX =50
-						var maxX = -50
+						var minX =-50
+						var maxX = 50
 
 						var minY = -50
 						var maxY = 50
@@ -431,7 +431,7 @@
 	                });
 	            }
 
-				if(context){
+				/*if(context){
 					var dis = 1;
 					var spd = .0005;
 					for( var _x = 0; _x < 10; _x++ ) {
@@ -448,8 +448,8 @@
 							}
 						}
 					}
-				}
-				if ( texture ) texture.needsUpdate = true;
+				}*/
+				
 
 				camera.position.x -=(camera.position.x+ Math.cos( timer+2 ) * (3*40*3))/5;
 				camera.position.y -=(camera.position.y- (Math.sin( timer+2 ) * (-50+timer2*80*20/10)-70))/5;//= 2*40;// 2;

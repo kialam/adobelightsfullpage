@@ -7,7 +7,7 @@ var y;
 (function($) {
 	$(window).load(function() {
 		// get json
-		$.getJSON('json/artists.json', function (data) {
+		$.getJSON('http://54.203.249.154:5050/get/all', function (data) {
 				console.log('success getting JSON');
 				artistArray = data;
 				
@@ -49,7 +49,7 @@ moveArtistInfo = function () {
 	var width = window.innerWidth, height = window.innerHeight;
 	var widthHalf = width / 2, heightHalf = height / 2;
 	var boxSize = {x:250,y:145};
-
+	if(!box)return;
 	posX = (box.x)-boxSize.x/2; // added offset
 	posY = (-height/2+box.y-boxSize.y)+60; //added offset
 
