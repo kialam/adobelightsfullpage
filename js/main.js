@@ -51,7 +51,7 @@ moveArtistInfo = function () {
 	var boxSize = {x:250,y:145};
 
 	posX = (box.x)-boxSize.x/2; // added offset
-	posY = (-height/2+box.y-boxSize.y)+50; //added offset
+	posY = (-height/2+box.y-boxSize.y)+60; //added offset
 
 	$('.popup').css("left", posX);
 	$('.popup').css("top", posY);
