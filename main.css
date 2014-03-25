@@ -262,16 +262,16 @@ button:focus {
 	/*border: 1px solid #fff;*/
 }
 #fullPage-nav li .active span{
-	background: transparent;
+	background: #fff;
 }
 #fullPage-nav span{
 	top: 2px;
 	left: 2px;
-	width: 8px;
-	height: 8px;
-	border: 1px solid #fff;
+	width: 12px;
+	height: 12px;
+	/*border: 1px solid #fff;*/
 	/*background: rgba(0, 0, 0, 0);*/
-	background-color: #fff;
+	background-color: #454545;
 	/*-webkit-border-radius: 50%;*/
 	/*-moz-border-radius: 50%;*/
 	/*border-radius: 50%;*/
