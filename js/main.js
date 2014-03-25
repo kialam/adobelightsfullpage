@@ -19,6 +19,7 @@ var y;
 			// var box = evt.box;
 			var data = artistArray;
 			var i = evt.artistId;
+			if(!data[i])return;
 			artistName = data[i].name;
 			artistCompany = data[i].company;
 			artistEmail = data[i].email;
