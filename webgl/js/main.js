@@ -26,42 +26,38 @@ $(document).ready(function() {
     context.fillStyle = "#000000";
     context.fillRect(0,0,10,10);
 
-var connection = new WebSocket('ws://54.203.249.154:5052', ['soap', 'xmpp']);
+	var connection = new WebSocket('ws://54.203.249.154:5052', ['soap', 'xmpp']);
                     
-                    // When the connection is open, send some data to the server
-                    connection.onopen = function () {
-                        console.log('connection opened');
-                        connection.send(JSON.stringify({message: 'Ping'})); // Send the message 'Ping' to the server
-                    };
+	// When the connection is open, send some data to the server
+	connection.onopen = function () {
+	    console.log('connection opened');
+	    connection.send(JSON.stringify({message: 'Ping'})); // Send the message 'Ping' to the server
+	};
 
-                    // Log errors
-                    connection.onerror = function (error) {
-                        console.log('WebSocket Error ' + error);
-                    };
+	// Log errors
+	connection.onerror = function (error) {
+	    console.log('WebSocket Error ' + error);
+	};
 
-                    // Log messages from the server
-                    connection.onmessage = function (e) {
-                        var data = JSON.parse(e.data);
-                        //console.log('Server: ' + e.data);  
-                        //console.log(data);
-                        var i=0;
+	// Log messages from the server
+	connection.onmessage = function (e) {
+	    var data = JSON.parse(e.data);
+	    //console.log('Server: ' + e.data);  
+	    //console.log(data);
+	    var i=0;
 
-						for (var _y = 0; _y < 10; _y++) {
-							for (var _x = 0; _x < 10; _x++) {
-								var color = "rgba(" + data[i] + ")";
-								if(data[i] === undefined)return;
-								//if(i==0)console.log(color)
-								context.fillStyle = color;
-								context.fillRect(_x,_y,1,1);
-								i++
-							};
-						};
-						
-						if ( texture ) texture.needsUpdate = true;
-                    };
+		for (var _y = 0; _y < 10; _y++) {
+			for (var _x = 0; _x < 10; _x++) {
+				var color = "rgba(" + data[i] + ")";
+				if(data[i] === undefined)return;
+				//if(i==0)console.log(color)
+				context.fillStyle = color;
+				context.fillRect(_x,_y,1,1);
+				i++
+			};
+		};
+		
+		if ( texture ) texture.needsUpdate = true;
+	};
 
-
-	
-
-	client.connect();
 });
