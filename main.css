@@ -279,10 +279,18 @@ button:focus {
 	position: absolute;
 	z-index: 1;
 }
+
+#section1 #fullPage-nav li .active span{
+	background: #000;
+}
+
+#section1 #fullPage-nav span {
+	background-color: #45c48f
+}
 .cubes {
 	font-style: italic;
 	position: absolute;
-	bottom: 50px;
+	top: 70px;
 	left: 25%;
 }
 .popup {
