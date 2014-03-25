@@ -60,12 +60,27 @@
         <script type="text/javascript">
         	var iframe = $('#player1')[0],
 			    player = $f(iframe);
+			
 			$('.play').bind('click', function() {
+				displayVimeo();
+				player.api('play');
+			});
+			// Handles when user scrolls up or down away from video page
+			$(window).bind('mousewheel DOMMouseScroll', function(event){
+				    if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+				        // scroll up
+				        player.api('pause');
+				    }
+				    else {
+				        // scroll down
+				        player.api('pause');
+				    }
+				});
+			function displayVimeo () {
 				$('#section2').css({'background':'none', 'background-color':'#141414'});
 				$('.play').fadeOut('slow');
 				$('#player1').css('display', 'block');
-				player.api('play');
-			});
+			}
         </script>
 
 	</div>
