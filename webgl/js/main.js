@@ -75,7 +75,7 @@ $(document).ready(function() {
 				//if(i==0)console.log(color)
 				if(mod>0){
 					if(Math.random()<mod){
-					if (a[_y][_x]===0){
+					if (a[_y][_x]===1){
 						data[i] = (100+Math.round(Math.random()*155))+", 0, 0, 1"
 					}else{
 						data[i] = (100+Math.round(Math.random()*155))+", "+(100+Math.round(Math.random()*155))+", "+(100+Math.round(Math.random()*155))+", "+ 1
