@@ -18,6 +18,21 @@ var client, count = 0, humans = new Array();
 var player, done, ready = false;
 var canvas, context, image_from_canvas;
 
+var sin=0;
+
+var a = [
+	[1,1,1,1,1,1,1,1,1,1],
+	[1,1,1,1,0,0,1,1,1,1],
+	[1,1,1,1,0,0,1,1,1,1],
+	[1,1,1,0,0,0,0,1,1,1],
+	[1,1,1,0,0,0,0,1,1,1],
+	[1,1,0,0,1,1,0,0,1,1],
+	[1,1,0,0,1,1,0,0,1,1],
+	[1,0,0,1,1,1,1,0,0,1],
+	[1,0,0,0,0,1,1,0,0,1],
+	[0,0,0,0,0,0,1,0,0,0]
+];
+
 $(document).ready(function() {
 	canvas = document.getElementById("canvasOutput");
 	canvas.width = 10;
@@ -45,12 +60,29 @@ $(document).ready(function() {
 	    //console.log('Server: ' + e.data);  
 	    //console.log(data);
 	    var i=0;
+	    var mod = Math.sin(sin);
+	    if(mod<0)mod=0;
+	    
+	    if(mod==0){
+	    	sin+=.025
+	    }else{
+	    	sin+=.05
+	    }
 
 		for (var _y = 0; _y < 10; _y++) {
 			for (var _x = 0; _x < 10; _x++) {
-				var color = "rgba(" + data[i] + ")";
-				if(data[i] === undefined)return;
+				if (data[i] === undefined) return;
 				//if(i==0)console.log(color)
+				if(mod>0){
+					if(Math.random()<mod){
+					if (a[_y][_x]===0){
+						data[i] = (155+Math.round(Math.random()*100))+", 0, 0, 1"
+					}else{
+						data[i] = (155+Math.round(Math.random()*100))+", "+(155+Math.round(Math.random()*100))+", "+(155+Math.round(Math.random()*100))+", "+ 1
+					}}
+				}
+				var color = "rgba(" + data[i] + ")";
+				//console.log(a[_x][_y])
 				context.fillStyle = color;
 				context.fillRect(_x,_y,1,1);
 				i++
