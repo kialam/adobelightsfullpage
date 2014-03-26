@@ -232,7 +232,7 @@ button:focus {
 	color: #000;
 }
 .info {
-	padding: 20px 0 10px;
+	padding: 0 0 10px;
 }
 #work {
 	font-size: 12px;
@@ -368,7 +368,7 @@ button:focus {
 .cancel {
 	cursor: pointer;
 	margin: 0;
-	height: 22px;
+	height: 18px;
 	width: 100%;
 	padding: 0 0 5px 0;
 	text-align: right;
@@ -377,9 +377,10 @@ button:focus {
 	z-index: 100000000000000000;
 	display: inline-block;
 	font-weight: 300;
-	position: absolute;
-	bottom: 110px;
-	right: 10px;
+	position: relative;
+	bottom: 20px;
+	right: 0;
+	float: right;
 }
 
 #test p {

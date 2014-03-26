@@ -1,6 +1,6 @@
-url = 'http://www.json-generator.com/j/cqWlwQKSbm?indent=4'; //expires in 30 days as of 2/12/14
+// url = 'http://www.json-generator.com/j/cqWlwQKSbm?indent=4'; //expires in 30 days as of 2/12/14
 var box;
-var artistArray;
+var artistArray, artistName, artistWork, artistLoc;
 var x;
 var y;
 
@@ -8,31 +8,25 @@ var y;
 	$(window).load(function() {
 		// get json
 		$.getJSON('http://54.203.249.154:5050/get/all', function (data) {
-				console.log('success getting JSON');
-				artistArray = data;
-				
-			}).fail( function (d, textStatus, error) {
-				console.error("getJSON failed, status: " + textStatus + ", error: "+ error);
-			});
+			console.log('success getting JSON');
+			artistArray = data;
+			
+		}).fail( function (d, textStatus, error) {
+			console.error("getJSON failed, status: " + textStatus + ", error: "+ error);
+		});
 		// get artist info on click
 		$('body').on('cubeclick', function (evt) {
-			// var box = evt.box;
 			var data = artistArray;
 			var i = evt.artistId;
 			if(!data[i])return;
 			artistName = data[i].first_name+" "+data[i].last_name;
 			artistWork = data[i].behance;
 			artistLoc = data[i].physical_location;
-						// artistAbout = data[i].about;
-						// artistPic = data[i].picture;
+						
 			openPopup();
-					//}
-				//}
-			// console.log('artistId:' + evt.artistId);
         });
 		$('body').on('cubemove', function (evt) {
 			box = evt.box;
-
 			moveArtistInfo();
         });
 	});
@@ -40,11 +34,12 @@ var y;
 
 showAristInfo = function () {
 	$('#name').html(artistName);
-	if(artistWork.length > 1){
+	if(artistWork.length > 6){
 		$('#work').attr('href', artistWork);
 		$('.link').html('View Work');
 	} else {
-		// $('#work').css('display', 'none');
+		$('#work').attr('href', '');
+		$('.link').html('');
 	}
     $('#location').html(artistLoc);
 };
@@ -64,10 +59,10 @@ moveArtistInfo = function () {
 
 function openPopup() {
     $('.popup').css('opacity', '0');
-    // $('.popup').css('margin-top', '0');
+    $('.popup').css('margin-top', '0');
     $('.popup').show().animate({
 		opacity: 1,
-		// marginTop: 5
+		marginTop: 5
 	});
     showAristInfo();
     moveArtistInfo();
