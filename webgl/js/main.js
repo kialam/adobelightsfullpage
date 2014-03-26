@@ -76,9 +76,9 @@ $(document).ready(function() {
 				if(mod>0){
 					if(Math.random()<mod){
 					if (a[_y][_x]===0){
-						data[i] = (155+Math.round(Math.random()*100))+", 0, 0, 1"
+						data[i] = (100+Math.round(Math.random()*155))+", 0, 0, 1"
 					}else{
-						data[i] = (155+Math.round(Math.random()*100))+", "+(155+Math.round(Math.random()*100))+", "+(155+Math.round(Math.random()*100))+", "+ 1
+						data[i] = (100+Math.round(Math.random()*155))+", "+(100+Math.round(Math.random()*155))+", "+(100+Math.round(Math.random()*155))+", "+ 1
 					}}
 				}
 				var color = "rgba(" + data[i] + ")";
@@ -89,7 +89,6 @@ $(document).ready(function() {
 			};
 		};
 		
-		if ( texture ) texture.needsUpdate = true;
 	};
 
 });
