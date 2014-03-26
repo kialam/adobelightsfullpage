@@ -227,6 +227,10 @@ button:focus {
 	position:absolute;
 	margin-left: -420px;
 }
+
+#section3 a {
+	color: #000;
+}
 .intro p{
 	width: 50%;
 	margin: 0 auto;
