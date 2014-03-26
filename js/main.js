@@ -21,8 +21,8 @@ var y;
 			var i = evt.artistId;
 			if(!data[i])return;
 			artistName = data[i].first_name+" "+data[i].last_name;
-			artistCompany = data[i].behance;
-			artistEmail = data[i].physical_location;
+			artistWork = data[i].behance;
+			artistLoc = data[i].physical_location;
 						// artistAbout = data[i].about;
 						// artistPic = data[i].picture;
 			openPopup();
@@ -40,10 +40,13 @@ var y;
 
 showAristInfo = function () {
 	$('#name').html(artistName);
-    $('#company').html(artistCompany);
-    $('#email').html(artistEmail);
-    // $('#about').html(artistAbout);
-    // $('#pic').attr("src",artistPic);
+	if(artistWork.length > 1){
+		$('#work').attr('href', artistWork);
+		$('.link').html('View Work');
+	} else {
+		// $('#work').css('display', 'none');
+	}
+    $('#location').html(artistLoc);
 };
 
 moveArtistInfo = function () {
@@ -52,7 +55,7 @@ moveArtistInfo = function () {
 	var boxSize = {x:250,y:145};
 	if(!box)return;
 	posX = (box.x)-boxSize.x/2; // added offset
-	posY = (-height/2+box.y-boxSize.y)+60; //added offset
+	posY = (-height/2+box.y-boxSize.y)+100; //added offset
 
 	$('.popup').css("left", posX);
 	$('.popup').css("top", posY);

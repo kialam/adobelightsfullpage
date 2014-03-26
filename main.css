@@ -231,6 +231,18 @@ button:focus {
 #section3 a {
 	color: #000;
 }
+.info {
+	padding: 20px 0 10px;
+}
+#work {
+	font-size: 12px;
+}
+#location {
+	font-size: 18px;
+}
+#section3 a:hover {
+	text-decoration: underline;
+}
 .intro p{
 	width: 50%;
 	margin: 0 auto;
@@ -356,15 +368,18 @@ button:focus {
 .cancel {
 	cursor: pointer;
 	margin: 0;
-	height: 3px;
+	height: 22px;
 	width: 100%;
 	padding: 0 0 5px 0;
 	text-align: right;
-	font-size: 22px;
+	font-size: 36px;
 	color: black;
 	z-index: 100000000000000000;
 	display: inline-block;
 	font-weight: 300;
+	position: absolute;
+	bottom: 110px;
+	right: 10px;
 }
 
 #test p {
