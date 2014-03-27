@@ -1077,6 +1077,11 @@
 				}else{
 					$('#fullPage-nav').find('li').eq(sectionIndex).find('a').addClass('active');
 				}
+			// if('#fullPage-nav li:nth-child(2) .active span'){
+			// 	$('#fullPage-nav li span').css('background-color', '#fff');
+			// } else {
+			// 	$('#fullPage-nav li span').css('background-color', '#000');
+			// }
 			}
 		}
 				
