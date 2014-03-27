@@ -49,7 +49,7 @@ moveArtistInfo = function () {
 	var widthHalf = width / 2, heightHalf = height / 2;
 	var boxSize = {x:250,y:145};
 	if(!box)return;
-	posX = (box.x)-boxSize.x/2; // added offset
+	posX = (box.x)-boxSize.x/2-10; // added offset
 	posY = (-height/2+box.y-boxSize.y)+100; //added offset
 
 	$('.popup').css("left", posX);

@@ -232,7 +232,7 @@ button:focus {
 	color: #000;
 }
 .info {
-	padding: 23px 0 10px;
+	padding: 23px 0 20px;
 }
 #work {
 	font-size: 12px;
@@ -266,7 +266,7 @@ button:focus {
 	display: block;
 	width: 14px;
 	height: 13px;
-	margin: 18px;
+	margin: 13px;
 }
 #fullPage-nav li a{
 	display: block;
@@ -284,17 +284,21 @@ button:focus {
 #fullPage-nav span{
 	top: 2px;
 	left: 2px;
-	width: 21px;
-	height: 21px;
+	width: 17px;
+	height: 17px;
 	/*border: 1px solid #fff;*/
 	/*background: rgba(0, 0, 0, 0);*/
-	background-color: #454545;
+	background-color: rgba(255,255,255, .47);
 	/*-webkit-border-radius: 50%;*/
 	/*-moz-border-radius: 50%;*/
 	/*border-radius: 50%;*/
 	border-radius: 0;
 	position: absolute;
 	z-index: 1;
+}
+
+#fullPage-nav li:nth-child(2) .active span {
+	background: #000;
 }
 
 #section1 #fullPage-nav li .active span{
@@ -313,7 +317,7 @@ button:focus {
 }
 .popup {
     position: relative;
-    width:250px;
+    width:235px;
     font-family:'brandon-grotesque';
     font-size:13px;
     padding:10px;
@@ -357,7 +361,7 @@ button:focus {
 	position: absolute;
 	width: 0;
 	height: 0;
-	left: 42%;
+	left: 45%;
 	top: 100%;
 	border: 15px solid;
 	border-color: rgba(81,255,183,1) transparent transparent;
@@ -381,9 +385,9 @@ button:focus {
 	font-weight: 300;
 	position: relative;
 	bottom: 0px;
-	left: 16px;
+	left: 20px;
 	float: right;
-	background-size: 50%;
+	background-size: 41%;
 }
 
 #test p {
@@ -401,12 +405,13 @@ p#email {
 	color: #000;
 	text-transform: uppercase;
 }
-
-@media screen and (max-width: 568px){ 
+/* iphone 5 */
+@media screen and (device-aspect-ratio: 40/71){ 
 	#logo > img {
 	max-width: 75%;
 	}
 	#section2 {
-	background: none;
-}
+	background: url('img/video_framesm.png') no-repeat;
+	background-size: cover;
+	}
 }
