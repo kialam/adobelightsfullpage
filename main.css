@@ -424,6 +424,7 @@ p#email {
 	background-size: cover;
 	}
 	#description {
-		max-width: 100%;
+		max-width: 70%;
+		font-size: 55px;
 	}
 }
