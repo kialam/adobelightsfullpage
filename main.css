@@ -78,7 +78,7 @@ p{
 	max-width: 70%;
 	margin: 0 auto;
 	font-weight: 300;
-	font-size: 42px;
+	font-size: 38px;
 }
 
 .section{
@@ -158,8 +158,8 @@ p{
 }*/
 .videoWrapper {
 	position: relative;
-	/*padding-bottom: 56.25%; /* 16:9 */
-	padding-bottom: 52.25%;
+	padding-bottom: 56.25%; /* 16:9 
+	/*padding-bottom: 52.25%;*/
 	padding-top: 25px;
 	height: 0;
 }
@@ -171,6 +171,9 @@ p{
 	height: 100%;
 }
 
+.player .controls {
+	bottom: 25px;
+}
 
 .defs {
   position: absolute;
@@ -419,5 +422,8 @@ p#email {
 	#section2 {
 	background: url('img/video_framesm.png') no-repeat;
 	background-size: cover;
+	}
+	#description {
+		max-width: 100%;
 	}
 }

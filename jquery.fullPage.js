@@ -29,7 +29,7 @@
 			'loopHorizontal': false,
 			'autoScrolling': true,
 			'scrollOverflow': false,
-			'css3': false,
+			'css3': true,
 			'paddingTop': 0,
 			'paddingBottom': 0,
 			'fixedElements': null,
