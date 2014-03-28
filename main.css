@@ -130,6 +130,7 @@ p{
 	background: url('img/logo_bg_empty.jpg') no-repeat;
 	background-size: cover;
 }
+
 #logo > img {
 	max-width: 50%;
 }
@@ -300,10 +301,14 @@ button:focus {
 }
 .cubes {
 	position: absolute;
-	top: 70px;
+	top: 33px;
 	left: 25%;
 	font-weight: 300;
 	letter-spacing: .0525em;
+}
+
+.cubes p {
+	font-size: 22px;
 }
 .popup {
     position: relative;
