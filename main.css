@@ -171,10 +171,6 @@ p{
 	height: 100%;
 }
 
-.player .controls {
-	bottom: 25px;
-}
-
 .defs {
   position: absolute;
   top: -9999px;
@@ -182,7 +178,9 @@ p{
 }
 
 button.play {
-	background: url('img/hoversm.png') no-repeat;
+	background: url('img/play_sprite.png') no-repeat;
+	background-size: 100px;
+	background-position: top;
 	width: 100px;
 	height: 100px;
 	border: none;
@@ -191,11 +189,13 @@ button.play {
 	left: 0;
 	top: 0;
 	right: 0;
-	margin: auto;
+	margin: auto;	
 }
 
 button.play:hover {
-	background: url('img/playsm.png') no-repeat;
+	background: url('img/play_sprite.png') no-repeat;
+	background-position: bottom;
+	background-size: 100px;
 }
 
 button:focus {
@@ -370,7 +370,7 @@ button:focus {
 	position: absolute;
 	width: 0;
 	height: 0;
-	left: 45%;
+	left: 44.5%;
 	top: 100%;
 	border: 15px solid;
 	border-color: rgba(81,255,183,1) transparent transparent;
@@ -414,17 +414,54 @@ p#email {
 	color: #000;
 	text-transform: uppercase;
 }
-/* iphone 5 */
-@media screen and (device-aspect-ratio: 40/71){ 
+/* iphone 5 portrait */
+@media screen and (device-aspect-ratio: 40/71) and (orientation: portrait) {
+	#section0 {
+		background: url('img/bg_sm.jpg') no-repeat;
+		background-size: cover;
+		background-position: center bottom;
+	}
 	#logo > img {
 	max-width: 75%;
 	}
 	#section2 {
-	background: url('img/video_framesm.png') no-repeat;
+	background: url('img/video_frame.jpg') top center no-repeat;
 	background-size: cover;
 	}
 	#description {
 		max-width: 70%;
-		font-size: 55px;
+		font-size: 65px;
+	}
+	button.play {
+		background: url('img/play_sprite.png') no-repeat;
+		background-size: 250px;
+		background-position: top;
+		width: 250px;
+		height: 250px;
+		border: none;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		top: 0;
+		right: 0;
+		margin: auto;
+	}
+	button.play:hover, button.play:active {
+		background: url('img/play_sprite.png') no-repeat;
+		background-position: bottom;
+		background-size: 250px;
+	}
+}
+
+/* iphone 5 landscape */
+@media screen and (device-aspect-ratio: 40/71) and (orientation: landscape) { 
+
+	#section2 {
+		background: url('img/video_frame.jpg') no-repeat;
+		background-size: cover;
+	}
+	#description {
+		max-width: 70%;
+		font-size: 42px;
 	}
 }
