@@ -136,34 +136,15 @@ p{
 #section1 p {
 	color: #2b2b2b;
 }
-/*#section0 img
-{
-	margin: 20px 0 0 0;
-}*/
 
-/*#section0 img.arrow {
-	display: inline-block;
-	position: absolute;
-	bottom: 50px
-}*/
-/*#section1 img.arrow {
-	position: absolute;
-	bottom: 50px;
-}
-*/
-/*#section2 img.arrow {
+/*.videoWrapper {
 	position: relative;
-	bottom: 160px;
-	cursor: pointer;
-}*/
-.videoWrapper {
-	position: relative;
-	padding-bottom: 56.25%; /* 16:9 
-	/*padding-bottom: 52.25%;*/
+	padding-bottom: 56.25%;
 	padding-top: 25px;
 	height: 0;
-}
-.videoWrapper iframe {
+}*/
+.videoWrapper 
+iframe {
 	position: absolute;
 	top: 0;
 	left: 0;

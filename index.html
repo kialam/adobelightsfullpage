@@ -58,11 +58,30 @@
 <div class="section" id="section2">
 	<div class="intro">
         <div class="videoWrapper">
-        	<iframe id="player1" style="display:none;" src="//player.vimeo.com/video/88951996?title=0&amp;byline=0&amp;portrait=0?api=1&player_id=player1" width="1920" height="1080" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        	<iframe class="video" id="player1" style="display:none;" src="//player.vimeo.com/video/88951996?title=0&amp;byline=0&amp;portrait=0?api=1&player_id=player1" width="1920" height="1080" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
 		<button class="play"></button>
 		<img class="arrow" src="img/arrowsm.png">
         <script type="text/javascript">
+        (function($) {
+                $(window).load(function() {
+                    var w = $(window).width();
+                    var h = $(window).height();
+                    $('.video').css({
+                        width: w + 'px',
+                        height: h + 'px',
+                    });
+                    
+                    $(window).on('resize', function(evt) {
+                        var w = $(window).width();
+                        var h = $(window).height();
+                        $('.video').css({
+                            width: w + 'px',
+                            height: h + 'px',
+                        });
+                    });
+                });
+            })(jQuery);
         	var iframe = $('#player1')[0],
 			    player = $f(iframe);
 			
@@ -82,7 +101,7 @@
 				    }
 				});
 			function displayVimeo () {
-				$('#section2').css({'background':'none', 'background-color':'#141414'});
+				$('#section2').css({'background':'none', 'background-color':'#161416'});
 				$('#section2 img.arrow').css('display', 'none');
 				$('.play').fadeOut('slow');
 				$('#player1').css('display', 'block');
