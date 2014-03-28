@@ -36,7 +36,7 @@
 
 
 
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript" src="js/reconnecting-ws.min.js"></script>
 		<script type="text/javascript" src="js/Client.js?v=1"></script>
 		<script type="text/javascript" src="js/main.js?v=1"></script>
@@ -51,7 +51,15 @@
 
 		<script>
 
-			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+//			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+//                        if( Detector.webgl) {
+//                            parent.$('body').trigger({
+//                                type:'nogl'
+//                            });
+//                        } else {
+//                            
+//                        }
 
 			var container, stats;
 			var planeMaterial;
@@ -71,12 +79,45 @@
 			var canvasAnimContext = canvasAnim.getContext('2d');
 
 			var last_selected_block;
+                        
+//                        console.log(parent)
 
-			init();
-			build();
-			animate();
-
-
+                        (function($) {
+                            $(window).load(function() {
+                                if(!Detector.webgl) {
+                                    parent.nogl();
+                                } else {
+                                    init();
+                                    build();
+                                    animate();
+                                }
+                            });
+                        })(jQuery);
+                        
+//                        (function($) {
+//                            $(window).load(function() {
+//                                
+//                                console.log('loaded')
+//                                
+////                                setTimeout(function() {
+//                                    
+////                                    console.log(parent)
+//                                    
+//                                    if(Detector.webgl) {
+//                                        console.log('triggering')
+//                                        parent.$('body').trigger({
+//                                            type:'nogl'
+//                                        });
+//                                    } else {
+//                                        init();
+//                                        build();
+//                                        animate();
+//                                    }
+////                                }, 1000);
+//                            });
+//                        })(jQuery);
+                            
+                        
 			function init() {
 
 				container = document.createElement( 'div' );
