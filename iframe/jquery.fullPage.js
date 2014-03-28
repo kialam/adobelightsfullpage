@@ -17,7 +17,7 @@
 			'scrollingSpeed': 700,
 			'easing': 'easeOutSine',
 			'menu': false,
-			'navigation': true,
+			'navigation': false,
 			'navigationPosition': 'right',
 			'navigationColor': '#fff',
 			'navigationTooltips': [],
@@ -29,7 +29,7 @@
 			'loopHorizontal': false,
 			'autoScrolling': true,
 			'scrollOverflow': false,
-			'css3': false,
+			'css3': true,
 			'paddingTop': 0,
 			'paddingBottom': 0,
 			'fixedElements': null,
@@ -1077,6 +1077,11 @@
 				}else{
 					$('#fullPage-nav').find('li').eq(sectionIndex).find('a').addClass('active');
 				}
+			// if('#fullPage-nav li:nth-child(2) .active span'){
+			// 	$('#fullPage-nav li span').css('background-color', '#fff');
+			// } else {
+			// 	$('#fullPage-nav li span').css('background-color', '#000');
+			// }
 			}
 		}
 				

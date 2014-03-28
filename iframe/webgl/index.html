@@ -51,7 +51,15 @@
 
 		<script>
 
-			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+//			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+//                        if( Detector.webgl) {
+//                            parent.$('body').trigger({
+//                                type:'nogl'
+//                            });
+//                        } else {
+//                            
+//                        }
 
 			var container, stats;
 			var planeMaterial;
@@ -71,12 +79,45 @@
 			var canvasAnimContext = canvasAnim.getContext('2d');
 
 			var last_selected_block;
+                        
+//                        console.log(parent)
 
-			init();
-			build();
-			animate();
-
-
+                        (function($) {
+                            $(window).load(function() {
+                                if(!Detector.webgl) {
+                                    parent.nogl();
+                                } else {
+                                    init();
+                                    build();
+                                    animate();
+                                }
+                            });
+                        })(jQuery);
+                        
+//                        (function($) {
+//                            $(window).load(function() {
+//                                
+//                                console.log('loaded')
+//                                
+////                                setTimeout(function() {
+//                                    
+////                                    console.log(parent)
+//                                    
+//                                    if(Detector.webgl) {
+//                                        console.log('triggering')
+//                                        parent.$('body').trigger({
+//                                            type:'nogl'
+//                                        });
+//                                    } else {
+//                                        init();
+//                                        build();
+//                                        animate();
+//                                    }
+////                                }, 1000);
+//                            });
+//                        })(jQuery);
+                            
+                        
 			function init() {
 
 				container = document.createElement( 'div' );
@@ -84,7 +125,7 @@
 
 				scene = new THREE.Scene();
 
-				camera = new THREE.PerspectiveCamera( 65, window.innerWidth / window.innerHeight, 1, 4000 );
+				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 4000 );
 				camera.position.set( 2, 2, 3 );
 				scene.add( camera );
 
@@ -433,10 +474,10 @@
 				
 
 				camera.position.x -=(camera.position.x+ Math.cos( timer+2 ) * (3*40*3))/5;
-				camera.position.y -=(camera.position.y- (Math.sin( timer+2 ) * (-50+timer2*80*20/10)-70))/5;//= 2*40;// 2;
-				camera.position.z =130//-=(camera.position.z- Math.sin( timer+2 ) * (timer2*80*40))/5;
+				camera.position.y -=(camera.position.y- (-10+Math.sin( timer+2 ) * (-50+timer2*80*20/10)-70))/5;//= 2*40;// 2;
+				camera.position.z =120//-=(camera.position.z- Math.sin( timer+2 ) * (timer2*80*40))/5;
 
-				camera.lookAt( new THREE.Vector3(0,10,0 ) );
+				camera.lookAt( new THREE.Vector3(0,5,0 ) );
 
 				canvasAnimContext.save();
 				canvasAnimContext.globalAlpha = 0.015;

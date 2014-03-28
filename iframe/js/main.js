@@ -29,8 +29,18 @@ var y;
 			box = evt.box;
 			moveArtistInfo();
         });
+        
+//            $('body').on('nogl', function (evt) {
+//                console.log('displaying no gl')
+//                $('.nogl').removeClass('hidden');
+//            });
 	});
 })(jQuery);
+
+function nogl() {
+    console.log('stuff')
+     $('.nogl').removeClass('hidden');
+}
 
 showAristInfo = function () {
 	$('#name').html(artistName);

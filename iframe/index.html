@@ -18,7 +18,11 @@
 			 var console = { log: function() {} };
 		</script>
 	<![endif]-->
-		
+        <style>
+            .hidden {
+                display: none;
+            }
+        </style>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 	<script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
@@ -50,7 +54,7 @@
 	</script>
 </head>
 <body>
-<div class="section " id="section0">
+<!--<div class="section " id="section0">
 	<div class="intro">
 		<div id="logo">       
 	        <img src="img/logo.png">
@@ -68,7 +72,7 @@
         	<iframe id="player1" style="display:none;" src="//player.vimeo.com/video/88951996?title=0&amp;byline=0&amp;portrait=0?api=1&player_id=player1" width="1920" height="1080" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
 		<button class="play"></button>
-		<img class="arrow" src="img/arrowgreen.png">
+		<img class="arrow" src="img/arrowsm.png">
         <script type="text/javascript">
         	var iframe = $('#player1')[0],
 			    player = $f(iframe);
@@ -93,6 +97,7 @@
 				$('#section2 img.arrow').css('display', 'none');
 				$('.play').fadeOut('slow');
 				$('#player1').css('display', 'block');
+				$('.player .controls').css('bottom', '25px');
 			}
 			console.log("webgl? "+Detector.webgl)
 			if(!Detector.webgl) $( "#section3" ).remove();
@@ -100,7 +105,7 @@
         </script>
 
 	</div>
-</div>
+</div>-->
 <div class="section" id="section3">
 	<div class="intro">
 
@@ -118,8 +123,8 @@
 		</div>
 		
 		<br /><br /><br />
-		<p class="cubes">
-			Click the lights and discover the artists behind them.
+		<p class="cubes nogl hidden">
+			Sorry, your browser does not support <a href="http://khronos.org/webgl/wiki/Getting_a_WebGL_Implementation" style="color:#fff">WebGL</a>.<br/>
 		</p>
 	</div>
 </div>

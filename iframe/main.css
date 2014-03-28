@@ -78,7 +78,7 @@ p{
 	max-width: 70%;
 	margin: 0 auto;
 	font-weight: 300;
-	font-size: 42px;
+	font-size: 38px;
 }
 
 .section{
@@ -136,10 +136,11 @@ p{
 #section1 p {
 	color: #2b2b2b;
 }
-#section0 img,
-#section1 img{
+/*#section0 img
+{
 	margin: 20px 0 0 0;
-}
+}*/
+
 /*#section0 img.arrow {
 	display: inline-block;
 	position: absolute;
@@ -157,8 +158,8 @@ p{
 }*/
 .videoWrapper {
 	position: relative;
-	/*padding-bottom: 56.25%; /* 16:9 */
-	padding-bottom: 52.25%;
+	padding-bottom: 56.25%; /* 16:9 
+	/*padding-bottom: 52.25%;*/
 	padding-top: 25px;
 	height: 0;
 }
@@ -170,6 +171,9 @@ p{
 	height: 100%;
 }
 
+.player .controls {
+	bottom: 25px;
+}
 
 .defs {
   position: absolute;
@@ -183,8 +187,11 @@ button.play {
 	height: 100px;
 	border: none;
 	position: absolute;
-	bottom: 46%;
-	left: 47%;
+	bottom: 0;
+	left: 0;
+	top: 0;
+	right: 0;
+	margin: auto;
 }
 
 button.play:hover {
@@ -197,8 +204,10 @@ button:focus {
 .arrow {
 	cursor: pointer;
 	position: absolute;
-	left: 48%;
+	left: 0;
 	bottom: 50px;
+	margin: auto;
+	right: 0;
 }
 
 #section2 {
@@ -266,7 +275,7 @@ button:focus {
 	display: block;
 	width: 14px;
 	height: 13px;
-	margin: 13px;
+	margin: 15px;
 }
 #fullPage-nav li a{
 	display: block;
@@ -288,7 +297,7 @@ button:focus {
 	height: 17px;
 	/*border: 1px solid #fff;*/
 	/*background: rgba(0, 0, 0, 0);*/
-	background-color: rgba(255,255,255, .47);
+	background-color: rgba(255,255,255, .27);
 	/*-webkit-border-radius: 50%;*/
 	/*-moz-border-radius: 50%;*/
 	/*border-radius: 50%;*/
@@ -297,9 +306,9 @@ button:focus {
 	z-index: 1;
 }
 
-#fullPage-nav li:nth-child(2) .active span {
+/*#fullPage-nav li:nth-child(2) .active span {
 	background: #000;
-}
+}*/
 
 #section1 #fullPage-nav li .active span{
 	background: #ccc;
@@ -315,6 +324,10 @@ button:focus {
 	font-weight: 300;
 	letter-spacing: .0525em;
 }
+.nogl {
+    top: 170px;
+}
+
 .popup {
     position: relative;
     width:235px;
@@ -413,5 +426,9 @@ p#email {
 	#section2 {
 	background: url('img/video_framesm.png') no-repeat;
 	background-size: cover;
+	}
+	#description {
+		max-width: 70%;
+		font-size: 55px;
 	}
 }
