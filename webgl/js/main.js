@@ -41,7 +41,7 @@ $(document).ready(function() {
     context.fillStyle = "#000000";
     context.fillRect(0,0,10,10);
 
-	var connection = new WebSocket('ws://54.203.249.154:5052', ['soap', 'xmpp']);
+	var connection = new WebSocket('wss://betadata.info', ['soap', 'xmpp']);
                     
 	// When the connection is open, send some data to the server
 	connection.onopen = function () {

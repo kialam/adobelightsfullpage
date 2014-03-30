@@ -7,7 +7,7 @@ var y;
 (function($) {
 	$(window).load(function() {
 		// get json
-		$.getJSON('http://54.203.249.154:5050/get/all', function (data) {
+		$.getJSON('https://betadata.info/get/all', function (data) {
 			console.log('success getting JSON');
 			artistArray = data;
 			
