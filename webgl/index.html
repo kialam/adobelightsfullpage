@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<title>adobe</title>
+		<title>Adobe Lights</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<style>
@@ -71,6 +71,7 @@
 			var canvasAnimContext = canvasAnim.getContext('2d');
 
 			var last_selected_block;
+			var time = 0;
 
 			init();
 			build();
@@ -442,7 +443,11 @@
 				canvasAnimContext.globalAlpha = 0.015;
 				canvasAnimContext.drawImage(canvasOutput,0,0);
 				canvasAnimContext.restore();
-		if ( texture ) texture.needsUpdate = true;
+				time++
+				if ( texture && time==3 ) {
+					texture.needsUpdate = true;
+					time=0;
+				}
 
 				renderer.render( scene, camera );
 
