@@ -1,4 +1,3 @@
-// url = 'http://www.json-generator.com/j/cqWlwQKSbm?indent=4'; //expires in 30 days as of 2/12/14
 var box;
 var artistArray, artistName, artistWork, artistLoc;
 var x;
@@ -23,9 +22,9 @@ var y;
 				artistWork = data[i].behance;
 				artistLoc = data[i].physical_location;
 			}else{
-				artistName="Artist Info Coming Soon";
+				artistName=null;
 				artistWork = null;
-				artistLoc = null;
+				artistLoc = "Artist info coming soon.";
 			}
 						
 			openPopup();
@@ -39,7 +38,6 @@ var y;
 
 showAristInfo = function () {
 	$('#name').html(artistName);
-	console.log("hi")
 	if(artistWork && artistWork.length > 1){
 		$('#work').attr('href', artistWork);
 		$('.link').html('View Work');
