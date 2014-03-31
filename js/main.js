@@ -34,7 +34,8 @@ var y;
 
 showAristInfo = function () {
 	$('#name').html(artistName);
-	if(artistWork.length > 6){
+	console.log(artistWork)
+	if(artistWork && artistWork.length > 1){
 		$('#work').attr('href', artistWork);
 		$('.link').html('View Work');
 	} else {
