@@ -198,16 +198,9 @@ button:focus {
 	background-size: cover;
 }
 
-/*svg.play_icon {
-	position: absolute;
-	bottom: 50%;
-}*/
+
 .play {
 	cursor: pointer;
-	/*padding-top: 75px;*/
-}
-#section2 img{
-	/*margin: 20px 0 0 52px;	*/
 }
 
 #section2.arrow {
@@ -278,20 +271,11 @@ button:focus {
 	left: 2px;
 	width: 17px;
 	height: 17px;
-	/*border: 1px solid #fff;*/
-	/*background: rgba(0, 0, 0, 0);*/
 	background-color: rgba(255,255,255, .27);
-	/*-webkit-border-radius: 50%;*/
-	/*-moz-border-radius: 50%;*/
-	/*border-radius: 50%;*/
 	border-radius: 0;
 	position: absolute;
 	z-index: 1;
 }
-
-/*#fullPage-nav li:nth-child(2) .active span {
-	background: #000;
-}*/
 
 #section1 #fullPage-nav li .active span{
 	background: #ccc;
@@ -318,38 +302,10 @@ button:focus {
     font-size:13px;
     padding:10px;
     background-color: rgba(81,255,183,1);
-    /*moz-box-shadow: 10px 10px 5px rgba(0,0,0,0.7);*/
-	/*-webkit-box-shadow: 10px 10px 5px rgba(0,0,0,0.7);*/
-	/*box-shadow: 10px 10px 5px rgba(0,0,0,0.7);*/
     z-index:100000000000000000;
     display:none;
     opacity: 0;
 }
-
-/*.triangle-with-shadow {
-   width: 100px;
-   height: 65px;
-   position: absolute;
-   overflow: hidden;
-   bottom: 63px;
-   left: 33%;
-   top: 110px;
-   z-index: -9999;
-}*/
-/*.triangle-with-shadow:after {
-   content: "";
-   position: absolute;
-   width: 40px;
-   height: 40px;
-   background: transparent;
-   transform:rotate(45deg);*/
-   /*-ms-transform:rotate(45deg);  IE 9 */
-   /*-moz-transform:rotate(45deg); /* IE 9 */
-   /*-webkit-transform:rotate(45deg); /* Opera, Chrome, and Safari */
-   /*top: 75px;*/
-   /*left: 19px;
-   box-shadow: 18px 16px 7px -8px rgba(0,0,0,0.7);
-}*/
 
 /* CSS for thought bubble */
 #test:before {
@@ -374,7 +330,6 @@ button:focus {
 	width: 35px;
 	padding: 0 0 5px 0;
 	text-align: right;
-	/*font-size: 36px;*/
 	color: black;
 	z-index: 100000000000000000;
 	display: inline-block;
