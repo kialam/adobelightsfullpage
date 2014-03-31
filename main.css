@@ -186,10 +186,11 @@ button:focus {
 .arrow {
 	cursor: pointer;
 	position: absolute;
+	top: 87%;
 	left: 0;
-	bottom: 50px;
-	margin: auto;
+	bottom: 0;
 	right: 0;
+	margin: auto;
 }
 
 #section2 {
