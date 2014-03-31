@@ -18,10 +18,15 @@ var y;
 		$('body').on('cubeclick', function (evt) {
 			var data = artistArray;
 			var i = evt.artistId;
-			if(!data[i])return;
-			artistName = data[i].first_name+" "+data[i].last_name;
-			artistWork = data[i].behance;
-			artistLoc = data[i].physical_location;
+			if(data[i]){
+				artistName = data[i].first_name+" "+data[i].last_name;
+				artistWork = data[i].behance;
+				artistLoc = data[i].physical_location;
+			}else{
+				artistName="Artist Info Coming Soon";
+				artistWork = null;
+				artistLoc = null;
+			}
 						
 			openPopup();
         });
@@ -34,6 +39,7 @@ var y;
 
 showAristInfo = function () {
 	$('#name').html(artistName);
+	console.log("hi")
 	if(artistWork && artistWork.length > 1){
 		$('#work').attr('href', artistWork);
 		$('.link').html('View Work');

@@ -341,7 +341,7 @@
 					if ( intersections.length > 0 ) {
 						selected_block = intersections[0].object;
 						last_selected_block = selected_block;
-						console.log(selected_block);
+						//console.log(selected_block);
 
 						var minX =-50
 						var maxX = 50
@@ -351,11 +351,11 @@
 
 						var pX = intersections[0].point.x;
 						var pY = intersections[0].point.y;
-						console.log(pX,pY);
+						//console.log(pX,pY);
 						var percX = Math.floor((pX-minX)/(maxX-minX)*10);
 						var percY = 9-Math.floor((pY-minY)/(maxY-minY)*10);
 						var blockId = percY*10+percX;
-						console.log(blockId);
+						//console.log(blockId);
 						var box = findPointer();
 						parent.$('body').trigger({
 							type:'cubeclick',
