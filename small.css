@@ -1,0 +1,23 @@
+.popup {
+	width: 145px;
+}
+
+#test #name {
+	font-size: 12px;
+}
+
+#location {
+	font-size: 13px;
+}
+
+#work {
+	font-size: 9px;
+}
+
+.cancel {
+	height: 7px;
+}
+
+.info {
+	padding: 12px 0 6px;
+}

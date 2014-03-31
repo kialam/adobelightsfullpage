@@ -51,10 +51,11 @@ showAristInfo = function () {
 moveArtistInfo = function () {
 	var width = window.innerWidth, height = window.innerHeight;
 	var widthHalf = width / 2, heightHalf = height / 2;
-	var boxSize = {x:250,y:145};
+	// var boxSize = {x:250,y:145}; // big box
+	var boxSize = {x:145,y:72}; //small box
 	if(!box)return;
 	posX = (box.x)-boxSize.x/2-10; // added offset
-	posY = (-height/2+box.y-boxSize.y)+100; //added offset
+	posY = (-height/2+box.y-boxSize.y)+50; //added offset
 
 	$('.popup').css("left", posX);
 	$('.popup').css("top", posY);
