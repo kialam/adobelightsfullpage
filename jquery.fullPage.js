@@ -24,7 +24,7 @@
 			'slidesNavigation': false,
 			'slidesNavPosition': 'bottom',
 			'controlArrowColor': '#fff',
-			'loopBottom': true,
+			'loopBottom': false,
 			'loopTop': false,
 			'loopHorizontal': false,
 			'autoScrolling': true,
